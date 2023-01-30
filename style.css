@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /*background-image: url(./assets/background-mobile-dark.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;*/
+
+    /*backgound: color image repeat position/ size */
+
+    background: var(--background) no-repeat top center/cover;
+    height: 100vh;
+    overflow: hidden;
+    
+
+}
+
+body *{
+
+    font-family: 'Inter', sans-serif;
+    color:var(--text--color);
+
+
+}
+
+:root{
+    --text--color: white;
+    --background: url(./assets/background-mobile-dark.jpg);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --strok-color: rgba(255, 255, 255, 0.5);
+    --surface-color-hover: rgba(255, 255, 255, 0.05);
+    --highlight-color:rgba(255, 255, 255, 0.2);
+    --background-button: url(./assets/mon-stars.svg);
+    --background-color: white;
+
+}
+
+.light{
+    --text--color: black;
+    --background: url(./assets/bg-light.jpg);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --strok-color: rgba(0, 0, 0, 0.5);
+    --surface-color-hover:rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --background-button: url(./assets/sun.svg);
+}
+
+#container{
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.5rem auto auto auto;
+    padding: 0 24px;
+    
+
+}
+
+/* Profile*/
+
+#profile{
+    text-align: center;
+    padding: 24px;
+    margin-top: 0.5rem;
+
+
+}
+
+#profile img{
+    width: 112px;
+    
+
+}
+
+#profile p {
+
+    font-weight: 500px;
+    line-height: 24px;
+
+}
+
+/* Switch*/
+
+#switch{
+    width: 64px;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+#switch button{
+    background: var(--background-color) var(--background-button) no-repeat center;
+    border: none;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+
+    position: absolute;
+
+    left: 0;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+
+    animation: slide-out .4s;
+
+   
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    border-radius: 9999px;
+    background: var(--surface-color);
+    border: 1px solid var(--strok-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+      
+}
+
+.light #switch button{
+
+    animation: slide-in .4s forwards;
+    
+}
+
+#switch button:hover{
+    
+    outline: 8px solid var(--surface-color);
+   
+}
+/*Links*/
+
+ul{
+    width: 100%;
+    max-width: 400px;
+    list-style:none;
+    display: flex;
+    flex-direction:column;
+    margin-top: 24px;
+    gap: 1rem;
+
+
+}
+
+ul li a {
+    /* width: 320px; */
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 16px 24px;
+    text-decoration: none;
+    font-weight: 500;
+    background: var(--surface-color);
+    border: 1px solid var(--strok-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background 0.2s;
+}
+
+ul li a:hover{
+    background: var(--surface-color-hover);
+    border: 2px solid var(--text--color);
+
+
+}
+
+
+#social-icons{
+    display: flex;
+    padding: 24px;
+    font-size: 1.5rem;
+    justify-content: center;
+}
+
+#social-icons a{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem;
+    transition: background 0.2s;
+    border-radius: 50%;
+
+
+}
+
+#social-icons a:hover{
+    background: var(--highlight-color);
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+    text-decoration: none;
+    font-size: 12pt;
+}
+
+/*Media queries*/
+
+@media (min-width:700px){
+
+    :root{
+        --background: url(./assets/max-Dark-mode.jpg);
+    }
+    .light{
+
+        --background: url(./assets/max-Light-mode.jpg);
+    }
+}
+
+/*Animation*/
+
+@keyframes slide-in{
+
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+
+}
+
+@keyframes slide-out{
+
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+
+}
